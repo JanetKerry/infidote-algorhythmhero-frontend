@@ -11,30 +11,38 @@ export class GamelogicComponent implements OnInit {
 
   timeCounter: number;
   running: boolean = false;
-  counter: number = -1;
+  counter: number;
   timerRef;
   timeArr: TrackModel;
+  timesArr;
   constructor() { }
 
   ngOnInit() {
   }
 
-  stopwatch(){
+  stopwatch(): void {
       const startTime = Date.now() - (this.counter || 0);
       this.timerRef = setInterval(() => {
         this.counter = Date.now() - startTime;
       });
-      const firstArrLength = this.timeArr.track.length-1
-      const secondArrLength = this.timeArr.track[firstArrLength].singleSection.length-1
-      if (startTime <= this.timeArr.track[firstArrLength][secondArrLength].time) {
+      
+      if (startTime <= this.timesArr[this.timesArr.length-1].time) { 
+        // checking the last time of the beat/bar therefor the stopwatch will stop after the last beat/bar
+
         // else finalyze
-      }
-      if(this.counter > this.timeArr.track[this.counter][0].time*0.9 && this.counter < this.timeArr[this.counter]*1.1 ){
-        console.log('Great hit bitch');
-        this.counter++
       }else{
-        console.log('You can suck my dickie');
-        this.counter++
+        clearInterval(this.timerRef);
       }
+  }
+  moderateResponse(data:TrackModel): void{ 
+    // this function is taking all "time"s and puts them in an array. Therefor we don't need to worry about how many elements in each section
+    // since just need the time. At the end, we are treating the JSON file as a 1D array, this function will make our work easier
+    let singleArr = [];
+    for (let i = 0; i < data.track.length; i++) {
+      for (let j = 0; j < data.track[i].singleSection.length; j++) {
+        singleArr.push(data.track[i].singleSection[j].singleTrack);
+      }
+    }
+    this.timesArr = singleArr;
   }
 }
