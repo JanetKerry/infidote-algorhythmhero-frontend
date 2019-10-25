@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./game.component.scss']
 })
 export class GameComponent implements OnInit {
-
   constructor() { }
-
+  playAudio(){
+    let audio = new Audio();
+    audio.src = "../../assets/music/chopsuey.mp3";
+    audio.load();
+    audio.play();
+  }
+  
   ngOnInit() {
   }
-
 }
