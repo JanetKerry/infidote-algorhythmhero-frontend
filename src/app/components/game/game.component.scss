@@ -6,7 +6,12 @@
   color: #2a7dee;
 }
 
+* {
+  display: flex;
+  justify-content: center;
+}
+
 canvas {
   width: 1000px;
-  border-style: solid;
+  height: 500px;
 }
