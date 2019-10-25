@@ -15,6 +15,7 @@ export class GamelogicComponent implements OnInit {
   timerRef;
   timeArr: TrackModel;
   timesArr;
+  trackCount: number = 0;
   constructor() { }
 
   ngOnInit() {
@@ -24,15 +25,20 @@ export class GamelogicComponent implements OnInit {
       const startTime = Date.now() - (this.counter || 0);
       this.timerRef = setInterval(() => {
         this.counter = Date.now() - startTime;
-      });
-      
-      if (startTime <= this.timesArr[this.timesArr.length-1].time) { 
-        // checking the last time of the beat/bar therefor the stopwatch will stop after the last beat/bar
+        if (this.counter > this.timesArr[this.trackCount].time*1.2) {
+          // in this case, click didn't happened within the 20% of the current track's range therefor trackCount increased
+          this.trackCount++;
+        }
+        if (startTime <= this.timesArr[this.timesArr.length-1].time) { 
+        // checking the last time of the beat/bar so game can be still playable
 
-        // else finalyze
       }else{
+        // time passed the last beat's time there for game stopped
         clearInterval(this.timerRef);
       }
+      });
+
+      
   }
   moderateResponse(data:TrackModel): void{ 
     // this function is taking all "time"s and puts them in an array. Therefor we don't need to worry about how many elements in each section
