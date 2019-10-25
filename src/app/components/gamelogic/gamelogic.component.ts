@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GamelogicComponent implements OnInit {
 
+  timeCounter: number;
+  running: boolean = false;
+  counter: number = -1;
   constructor() { }
 
   ngOnInit() {
