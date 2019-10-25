@@ -9,6 +9,7 @@ import { TrackModel } from '../../models/trackModel'
 })
 export class GamelogicComponent implements OnInit {
 
+  playable: boolean = false;
   timeCounter: number;
   running: boolean = false;
   counter: number;
@@ -22,6 +23,7 @@ export class GamelogicComponent implements OnInit {
   }
 
   stopwatch(): void {
+    this.playable = !this.playable; // playable is going to used to enable to click functinality(not implemented yet) only if the stopwatch started
       const startTime = Date.now() - (this.counter || 0);
       this.timerRef = setInterval(() => {
         this.counter = Date.now() - startTime;
@@ -30,10 +32,12 @@ export class GamelogicComponent implements OnInit {
           this.trackCount++;
         }
         if (startTime <= this.timesArr[this.timesArr.length-1].time) { 
-        // checking the last time of the beat/bar so game can be still playable
+        //this if~else statement is inside of the interval to be able to stop itself automatically.
+        // it is checking the last time of the beat/bar so game can be still playable
 
       }else{
         // time passed the last beat's time there for game stopped
+        this.playable = !this.playable
         clearInterval(this.timerRef);
       }
       });
