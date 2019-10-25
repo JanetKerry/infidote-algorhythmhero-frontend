@@ -12,7 +12,7 @@ import { LeaderboardComponent } from './components/leaderboard/leaderboard.compo
     AppComponent,
     GameComponent,
     HeaderComponent,
-    LeaderboardComponent
+    LeaderboardComponent,
   ],
   imports: [
     BrowserModule,

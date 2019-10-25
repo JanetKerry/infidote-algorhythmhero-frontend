@@ -1,0 +1,34 @@
+nav {
+  display: grid;
+  width: 100%;
+  height: 50px;
+  margin: 0;
+  grid-template-columns: repeat(12, 1fr);
+  justify-self: center;
+  background-color: #2a7dee;
+}
+.left,
+.middle,
+.right {
+  text-align: center;
+  align-self: center;
+  color: #c7ddfb;
+  text-decoration: none;
+  font-size: 20px;
+}
+.left {
+  grid-column: 1/4;
+}
+.middle {
+  grid-column: 5/8;
+}
+.right {
+  grid-column: 9/12;
+}
+// .middle:hover,
+// .right:hover {
+//   background-color: #b8e9f0;
+//   color: rgb(41, 111, 138);
+//   transition: 100ms;
+//   padding: 13px;
+// }
