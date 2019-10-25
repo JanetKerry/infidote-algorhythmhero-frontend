@@ -14,7 +14,7 @@ nav {
   align-self: center;
   color: #c7ddfb;
   text-decoration: none;
-  font-size: 20px;
+  font-size: 40px;
 }
 .left {
   grid-column: 1/4;
@@ -25,10 +25,10 @@ nav {
 .right {
   grid-column: 9/12;
 }
-// .middle:hover,
-// .right:hover {
-//   background-color: #b8e9f0;
-//   color: rgb(41, 111, 138);
-//   transition: 100ms;
-//   padding: 13px;
-// }
+.middle:hover,
+.right:hover,
+.left:hover {
+  cursor: url('../../../assets/images/musical-note.png'), auto;
+  color:#083066;
+  transition: 100ms;
+}

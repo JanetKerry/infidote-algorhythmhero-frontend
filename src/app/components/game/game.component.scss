@@ -9,9 +9,24 @@
 * {
   display: flex;
   justify-content: center;
+  font-size: 70px;
 }
 
 canvas {
   width: 1000px;
-  height: 500px;
+  height: 50vh;
+  margin: auto;
+  border-style: dotted;
+}
+
+button {
+  width: 300px;
+  background-color: #2a7dee;
+  color: #c7ddfb;
+  margin: auto;
+}
+
+button:hover {
+  cursor: url("../../../assets/images/musical-note.png"), auto;
+  color: #083066;
 }
