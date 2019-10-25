@@ -16,7 +16,7 @@ export class GameComponent implements OnInit {
 
   ngOnInit(): void {
     this.ctx = this.canvas.nativeElement.getContext('2d');
-    this.drawBars();
+    // this.drawBars();
   }
 
   drawBars() {
@@ -28,8 +28,6 @@ export class GameComponent implements OnInit {
   animate() {
     this.ctx.strokeStyle = 'red';
     const line = new Line(this.ctx);
-    const growth = 10;
-    line.draw(0, 200);
-    line.move(200, 10);
+    line.move(200, 1);
   }
 }

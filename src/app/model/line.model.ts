@@ -2,7 +2,7 @@ export class Line {
   constructor(private ctx: CanvasRenderingContext2D) { }
   draw(x: number, y: number) {
     this.ctx.moveTo(x, y);
-    this.ctx.lineTo(x + 20, y);
+    this.ctx.lineTo(x + 1, y);
     this.ctx.stroke();
   }
 
@@ -13,11 +13,11 @@ export class Line {
     const i = setInterval(() => {
       this.ctx.clearRect(0, 0, canvas.width, canvas.height);
       this.draw(x, y);
-      x++;
+      x ++;
       if (x >= max) {
         clearInterval(i);
       }
-    }, 20);
+    }, 1000);
   }
 }
 
