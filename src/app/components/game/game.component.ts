@@ -12,22 +12,6 @@ export class GameComponent implements OnInit {
     private musicDataService: MusicdataService
   ) {}
 
-  audio = new Audio();
-
-  playAudio() {
-    this.audio.src = '../../assets/music/chopsuey.mp3';
-    this.audio.load();
-    this.audio.play();
-  }
-  stopAudio() {
-    this.audio.pause();
-  }
-
   ngOnInit() {
-    this.getMusicData();
-  }
-
-  getMusicData() {
-    this.musicDataService.fetchMusicData().subscribe(data => console.log(data));
   }
 }
