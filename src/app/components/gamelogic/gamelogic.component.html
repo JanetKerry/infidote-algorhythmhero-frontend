@@ -1,1 +1,17 @@
-<p>gamelogic works!</p>
+<div class="container">
+  <div class="trackTimes" *ngIf="timesArr">
+    {{timesArr}}
+  </div>
+  <section class="timer-counter-label">
+		<!-- <div *ngIf="counter"> -->
+			<span>{{counter}}</span>
+			 <!-- </div> -->
+	</section>
+	<div class="timer-button-container">
+		<button class="timer-button" (click)="stopwatch()">
+			Start Time
+		</button>
+		<button [disabled]='!counter' [ngClass]="{'disabled': !counter}" class="timer-button" (click)="clickAction()">Hit</button>
+		<button class="timer-button" (click)="clearTimer()">Clear</button>
+	</div>
+</div>

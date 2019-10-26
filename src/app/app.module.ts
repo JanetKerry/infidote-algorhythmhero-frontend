@@ -7,6 +7,8 @@ import { GameComponent } from './components/game/game.component';
 import { HeaderComponent } from './components/header/header.component';
 import { LeaderboardComponent } from './components/leaderboard/leaderboard.component';
 import { GamelogicComponent } from './components/gamelogic/gamelogic.component';
+import { MusicdataService } from './services/musicdata.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,9 +20,12 @@ import { GamelogicComponent } from './components/gamelogic/gamelogic.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    MusicdataService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
