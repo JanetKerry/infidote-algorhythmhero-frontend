@@ -56,7 +56,6 @@ export class GameComponent implements OnInit {
     const line = new Line(this.ctx);
     line.move(200, 1);
   }
-  audio = new Audio();
 
   playAudio() {
     this.audio.src = '../../assets/music/chopsuey.mp3';
