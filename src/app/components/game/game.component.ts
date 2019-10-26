@@ -14,6 +14,7 @@ export class GameComponent implements OnInit {
   audio = new Audio();
   @ViewChild('canvas', { static: true })
   canvas: ElementRef<HTMLCanvasElement>;
+  clicked: boolean = false;
 
   private ctx: CanvasRenderingContext2D;
 
@@ -29,6 +30,7 @@ export class GameComponent implements OnInit {
   }
 
   animate() {
+    this.toggleCollapse();
     this.playAudio();
     // this.ctx.strokeStyle = 'red';
     const line = new Line(this.ctx);
@@ -61,5 +63,9 @@ export class GameComponent implements OnInit {
         this.drawBarsPerBeats(data);
       })
       ;
+  }
+
+  toggleCollapse() {
+    this.clicked = !this.clicked;
   }
 }

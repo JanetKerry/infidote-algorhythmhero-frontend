@@ -30,3 +30,7 @@ button {
 button:hover {
   cursor: url("../../../assets/images/musical-note.png"), auto;
 }
+
+div > p {
+  color: red;
+}
