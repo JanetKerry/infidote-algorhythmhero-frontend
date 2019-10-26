@@ -1,0 +1,32 @@
+nav {
+  display: grid;
+  margin: 0;
+  grid-template-columns: repeat(12, 1fr);
+  justify-self: center;
+  background-color: #2a7dee;
+}
+.left,
+.middle,
+.right {
+  text-align: center;
+  align-self: center;
+  color: #c7ddfb;
+  text-decoration: none;
+  font-size: 40px;
+}
+.left {
+  grid-column: 1/4;
+}
+.middle {
+  grid-column: 5/8;
+}
+.right {
+  grid-column: 9/12;
+}
+.middle:hover,
+.right:hover,
+.left:hover {
+  cursor: url('../../../assets/images/musical-note.png'), auto;
+  color:#083066;
+  transition: 100ms;
+}
