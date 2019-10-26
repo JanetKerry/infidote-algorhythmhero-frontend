@@ -36,11 +36,12 @@ export class GamelogicComponent implements OnInit {
 
   stopwatch(): void {
     this.playable = true; // playable is going to used to enable to click functinality(not implemented yet) only if the stopwatch started
-      const startTime = Date.now()/1000 - (this.counter || 0);
+      const startTime = Date.now() - (this.counter || 0);
       this.timerRef = setInterval(() => {
-        this.counter = Date.now()/1000 - startTime;
+        this.counter = Date.now() - startTime;
         if (this.counter > this.timesArr[this.trackCount]*1.2) {
-          // in this case, click didn't happened within the 20% of the current track's range therefor trackCount increased
+          console.log(this.timesArr[this.trackCount]*1.2, this.counter);
+          // in this case, click didn't happened within the 20% of the current track's range therefore trackCount increased
           this.trackCount++;
         }
         if (this.counter >= this.timesArr[this.timesArr.length-1]) { 
@@ -48,18 +49,19 @@ export class GamelogicComponent implements OnInit {
         // it is checking the last time of the beat/bar so game can be still playable
         this.playable = false;
         clearInterval(this.timerRef);
-      }else{
+
+        } else{
         // time passed the last beat's time there for game stopped
-      }
+        }
       });
   }
   moderateResponse(data:MusicDataResponse): void{ 
-    // this function is taking all "time"s and puts them in an array. Therefor we don't need to worry about how many elements in each section
+    // this function is taking all "time"s and puts them in an array. Therefore we don't need to worry about how many elements in each section
     // since just need the time. At the end, we are treating the JSON file as a 1D array, this function will make our work easier
     let singleArr = [];
     for (let i = 0; i < data.tracks.length; i++) {
       for (let j = 0; j < data.tracks[i].length; j++) {
-        singleArr.push(data.tracks[i][j].time);
+        singleArr.push(data.tracks[i][j].time*1000);
       }
     }
     this.timesArr = singleArr;
@@ -72,12 +74,12 @@ export class GamelogicComponent implements OnInit {
         if (this.counter > this.timesArr[this.trackCount]*0.9 && this.counter < this.timesArr[this.trackCount]*1.1) {
           console.log(`score: ${this.score} +100`)
           this.score += 100;
-          this.trackCount++;
+          // this.trackCount++;
           return;
         }
         console.log(`score: ${this.score} -50`)
         this.score -= 50;
-        this.trackCount++;
+        // this.trackCount++;
       }
     }
   }
