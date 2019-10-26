@@ -16,7 +16,7 @@ export class GameComponent implements OnInit {
 
   ngOnInit(): void {
     this.ctx = this.canvas.nativeElement.getContext('2d');
-    // this.drawBars();
+    this.drawBars();
   }
 
   drawBars() {
