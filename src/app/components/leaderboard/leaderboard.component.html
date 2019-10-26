@@ -1,1 +1,10 @@
-<p>leaderboard works!</p>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Score</th>
+    </tr>
+    <tr *ngFor="let player of leaderboard.scores">
+        <td>{{player.name}}</td>
+        <td>{{player.score}}</td>
+    </tr>
+</table>
