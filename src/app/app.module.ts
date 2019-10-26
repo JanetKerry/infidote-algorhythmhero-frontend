@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { GameComponent } from './components/game/game.component';
 import { HeaderComponent } from './components/header/header.component';
 import { LeaderboardComponent } from './components/leaderboard/leaderboard.component';
+import { MusicdataService } from './services/musicdata.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,9 +18,12 @@ import { LeaderboardComponent } from './components/leaderboard/leaderboard.compo
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    MusicdataService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
