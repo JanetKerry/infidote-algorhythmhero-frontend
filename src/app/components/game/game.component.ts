@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Line } from '../../model/line.model';
 import { Bar } from '../../model/bar.model';
+import { TrackService } from 'src/app/services/track/track.service';
+import { Track } from 'src/app/model/track.model';
 
 @Component({
   selector: 'app-game',
@@ -14,9 +16,22 @@ export class GameComponent implements OnInit {
 
   private ctx: CanvasRenderingContext2D;
 
+  constructor (private trackService: TrackService) {
+
+  }
+
   ngOnInit(): void {
     this.ctx = this.canvas.nativeElement.getContext('2d');
     this.drawBars();
+  }
+
+  getTrack() {
+    const trackRequest = this.trackService.getTrack()
+    trackRequest.subscribe(track => {
+      console.log(track)
+      const ratio = 600 / track.tracks[track.tracks.length - 1].time
+
+    })
   }
 
   drawBars() {
