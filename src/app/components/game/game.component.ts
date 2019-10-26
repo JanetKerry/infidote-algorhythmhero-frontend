@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Line } from '../../model/line.model';
 import { Bar } from '../../model/bar.model';
 import { MusicdataService } from 'src/app/services/musicdata.service';
+import { MusicDataResponse } from 'src/app/models/musidata';
 
 @Component({
   selector: 'app-game',
@@ -9,6 +10,7 @@ import { MusicdataService } from 'src/app/services/musicdata.service';
   styleUrls: ['./game.component.scss']
 })
 export class GameComponent implements OnInit {
+  musicData = new MusicDataResponse();
   audio = new Audio();
   @ViewChild('canvas', { static: true })
   canvas: ElementRef<HTMLCanvasElement>;
@@ -18,18 +20,17 @@ export class GameComponent implements OnInit {
   ngOnInit(): void {
     this.ctx = this.canvas.nativeElement.getContext('2d');
     this.getMusicData();
-    this.drawBars();
   }
 
-  drawBars() {
+  drawBars(xCoord: number) {
     this.ctx.strokeStyle = 'blue';
     const bar = new Bar(this.ctx);
-    bar.draw(40, 10);
+    bar.draw(xCoord, 200);
   }
 
   animate() {
     this.playAudio();
-    this.ctx.strokeStyle = 'red';
+    // this.ctx.strokeStyle = 'red';
     const line = new Line(this.ctx);
     line.move(200, 1);
   }
@@ -40,12 +41,25 @@ export class GameComponent implements OnInit {
     this.audio.load();
     this.audio.play();
   }
+
   stopAudio() {
     this.audio.pause();
   }
 
+  drawBarsPerBeats(musicData: MusicDataResponse) {
+    musicData.tracks.forEach(segment => {
+      segment.forEach(item => {
+        this.drawBars(item.time * 16.13);
+      });
+    });
+  }
+
   getMusicData() {
     this.musicDataService.fetchMusicData()
-      .subscribe(data => console.log(data));
+      .subscribe(data => {
+        this.musicData = data;
+        this.drawBarsPerBeats(data);
+      })
+      ;
   }
 }
