@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+  // cursor: url('../src/assets/images/musical-notes-symbols.png'), auto;
+  font-family: Barcode;
+}
+
+@font-face {
+  font-family: Barcode;
+  src: url(assets/font/LibreBarcode128Text-Regular.ttf) format('truetype');
+}
+
+html {
+  scroll-behavior: smooth;
+}

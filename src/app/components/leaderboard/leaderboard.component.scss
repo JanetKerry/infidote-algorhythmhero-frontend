@@ -1,3 +1,15 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+:host {
+  display: block;
+  height: 100vh;
+  color: #2a7dee;
+  // background-image: url("../../../assets/images/background.jpg");
+}
+
+
 table {
     border-collapse: collapse;
     width: 30%;
