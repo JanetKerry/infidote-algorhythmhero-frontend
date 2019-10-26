@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MusicdataService } from 'src/app/services/musicdata.service';
 
 @Component({
   selector: 'app-game',
@@ -6,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./game.component.scss']
 })
 export class GameComponent implements OnInit {
+
+  constructor(private musicDataService: MusicdataService) { }
+
   audio= new Audio();
   constructor() { }
   playAudio(){
@@ -18,5 +22,11 @@ export class GameComponent implements OnInit {
   }
   
   ngOnInit() {
+    this.getMusicData();
   }
+
+  getMusicData() {
+    this.musicDataService.fetchMusicData()
+    .subscribe(data => console.log(data));
+    }
 }
