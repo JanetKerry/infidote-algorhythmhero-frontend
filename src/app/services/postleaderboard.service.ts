@@ -13,7 +13,7 @@ const httpOptions = {
 export class PostleaderboardService {
   constructor(private http: HttpClient) {}
   postLeaderboard(name: string) {
-    return this.http.put(
+    return this.http.post(
       `http://localhost:3000/leaderboard`,
       name,
       httpOptions
