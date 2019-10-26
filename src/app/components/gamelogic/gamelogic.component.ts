@@ -31,7 +31,7 @@ export class GamelogicComponent implements OnInit {
   constructor(private musicService: MusicdataService) { }
 
   ngOnInit() {
-    this.musicService.fetchMusicData().subscribe(data =>{ this.moderateResponse(data)});
+    this.musicService.fetchMusicData().subscribe(data =>{ this.moderateResponse(data) });
   }
 
   stopwatch(): void {

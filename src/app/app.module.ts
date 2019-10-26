@@ -16,7 +16,10 @@ import { HttpClientModule } from '@angular/common/http';
     GameComponent,
     HeaderComponent,
     LeaderboardComponent,
+<<<<<<< HEAD
     GamelogicComponent
+=======
+>>>>>>> 77e10ad9555543672542dc4524180230856d61c6
   ],
   imports: [
     BrowserModule,

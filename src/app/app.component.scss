@@ -1,0 +1,11 @@
+app-header {
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+app-game,
+app-leaderboard {
+  height: 100vh;
+}
