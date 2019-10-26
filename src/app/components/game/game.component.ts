@@ -89,8 +89,8 @@ export class GameComponent implements OnInit {
       this.timerRef = setInterval(() => {
 
         this.counter = Date.now() - startTime;
-        if (this.counter > this.timesArr[this.trackCount]+300) {
-          console.log(this.timesArr[this.trackCount]+300, this.counter);
+        if (this.counter > this.timesArr[this.trackCount]+200) {
+          console.log(this.timesArr[this.trackCount]+200, this.counter);
         
           this.trackCount++;
         }
@@ -115,9 +115,9 @@ export class GameComponent implements OnInit {
   }
   clickAction() {
     if (this.playable) {
-      if (this.counter > this.timesArr[this.trackCount]-300 && this.counter < this.timesArr[this.trackCount]+300) {
+      if (this.counter > this.timesArr[this.trackCount]-200 && this.counter < this.timesArr[this.trackCount]+200) {
       
-        if (this.counter > this.timesArr[this.trackCount]-220 && this.counter < this.timesArr[this.trackCount]+220) {
+        if (this.counter > this.timesArr[this.trackCount]-100 && this.counter < this.timesArr[this.trackCount]+100) {
           console.log(`score: ${this.score} +100`)
           this.score += 100;
           return;
