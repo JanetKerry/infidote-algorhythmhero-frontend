@@ -10,17 +10,17 @@ export class GameComponent implements OnInit {
 
   constructor(private musicDataService: MusicdataService) { }
 
-  audio= new Audio();
- 
-  playAudio(){
-    this.audio.src = "../../assets/music/chopsuey.mp3";
+  audio = new Audio();
+
+  playAudio() {
+    this.audio.src = '../../assets/music/chopsuey.mp3';
     this.audio.load();
     this.audio.play();
   }
-  stopAudio(){
+  stopAudio() {
     this.audio.pause();
   }
-  
+
   ngOnInit() {
     this.getMusicData();
   }
@@ -28,5 +28,5 @@ export class GameComponent implements OnInit {
   getMusicData() {
     this.musicDataService.fetchMusicData()
     .subscribe(data => console.log(data));
-    }
+   }
 }

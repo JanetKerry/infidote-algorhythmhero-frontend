@@ -1,8 +1,10 @@
 export class MusicDataResponse {
     constructor(
-        public track?: [{
+        public track?: [
+            [{
             time?: number,
             type?: string
         }]
+    ]
     ) { }
 }
